@@ -29,4 +29,5 @@
 - 仓库中的`.md`编辑器[Typora](https://typora.io/)
 - 文章中的代码图片生成网站[https://carbon.now.sh/](https://carbon.now.sh/)
 - 脑图工具[Xmind Zen](https://www.xmind.cn/xmind2020/)
+- 图床工具**GitHub+jsDelivr+PicGo**
 
