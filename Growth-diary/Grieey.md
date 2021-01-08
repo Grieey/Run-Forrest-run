@@ -199,4 +199,16 @@ fun backTrace() {
 
 ![](https://cdn.jsdelivr.net/gh/Grieey/ImgHosting@main/img/prefix_PathSum.gif)
 
- 
+ ## 2021/01/08
+
+- **Kotlin**中对于二进制和十进制的转换
+
+  ![trans_between_2_and_10](https://cdn.jsdelivr.net/gh/Grieey/ImgHosting@main/img/trans_between_2_and_10.png)
+
+
+
+### [三步问题](https://leetcode-cn.com/problems/three-steps-problem-lcci/)
+
+经典对于斐波那契数列的应用，用动态规划来做。
+
+![waysToStep](https://cdn.jsdelivr.net/gh/Grieey/ImgHosting@main/img/waysToStep.png)
