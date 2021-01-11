@@ -217,10 +217,11 @@ fun backTrace() {
 
 - **《Android源码设计模式》**的代理模式阅读，结合`AIDL`和`Retrofit`去理解静态代理模式和动态代理模式。[文章传送门](https://grieey.github.io/2021/01/09/%E7%BB%93%E6%9E%84%E5%9E%8B%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F-%E4%BB%A3%E7%90%86%E6%A8%A1%E5%BC%8F/)
 
-- 进行了OPPO外包内置应用的二面
+- 进行了OPPO外包内置应用开发的二面。
 
 ## 2021/01/10
 
-
+- 做了两道算法题。
+- **《Android源码设计模式》**的装饰模式阅读。
 
 
