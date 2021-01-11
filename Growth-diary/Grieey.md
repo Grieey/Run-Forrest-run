@@ -223,5 +223,20 @@ fun backTrace() {
 
 - 做了两道算法题。
 - **《Android源码设计模式》**的装饰模式阅读。
+- 做了**Rxjava**的流程动画和技术分享
+
+## 2021/01/11
+
+- 重新梳理了脑图，根据面试题增加了一些内容，整理了本周计划
+
+- 文字描边效果实现方案：**Paint.Style.FillAndStroke**这个风格是会在文字填充的情况下，在外部再加一圈描边，其实对于**Paint**的这几种**style**，首先文字可以理解为1px的框绘制完成的，如下图的黑色线，**Fill**的效果就是用黄色填充的样子，而**Stroke**就是红色。结合前面的知识，要实现的描边（也就是**Stroke**的颜色和**Fill**不一样），可以考虑绘制两个文字，底部的用**Stroke**，顶部的用**Fill**
+
+  <img src="https://cdn.jsdelivr.net/gh/Grieey/ImgHosting@main/img/drawH.png" alt="drawH" style="zoom: 33%;" />
+
+- t1，t2，t3三个线程按照顺序打印1到100的代码示例，可以使用`join()`方法实现
+
+  ![thread_print_inorder](https://cdn.jsdelivr.net/gh/Grieey/ImgHosting@main/img/thread_print_inorder.png)
+
+- Glide的缓存策略源码分析，理清楚了逻辑
 
 
