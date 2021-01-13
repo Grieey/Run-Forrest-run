@@ -239,4 +239,16 @@ fun backTrace() {
 
 - Glide的缓存策略源码分析，理清楚了逻辑
 
+## 2021/01/12
 
+- 了解了recyclerview的缓存机制、内部处理点击事件冲突的逻辑
+- 重新复习了一遍之前的笔记，发现在很多知识点上有细节不到位的情况
+- 去书声科技一面，整理了面试题
+
+## 2021/01/13
+
+- gradle配置国内镜像`distributionUrl=https\://www.mobibrw.com/distributions/gradle-6.1.1-all.zip`
+
+  本地镜像`file:///Users/griee/Documents/Workspace/GradleHome/gradle-6.8-bin.zip`
+
+- 
