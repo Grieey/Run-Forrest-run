@@ -138,3 +138,12 @@ B、接着遍历到第8位置，假设`h != i`不成立，则第8的`entry`的�
 
 正常情况下，用完ThreadLocal实例,将其置为null，在发生GC时，ThreadLocal对象就会被回收。但是此时如果线程还存活(例如线程池线程的复用)，就会导致Entry的value对象得不到释放，会造成内存泄露。所以，在使用完ThreadLocal实例后，调用`remove`函数清除一下。
 
+#### 疑惑
+发生GC的时候，Key会被回收么，还能获取到值么？
+
+正常情况下，如果ThreadLocal实例同时被强引用，所以在发生GC的时候，是不会回收的，也就是此时`WeakReference.get`是有返回值的，不会被回收。
+
+![gc](https://cdn.jsdelivr.net/gh/Android-XXM/dio@main/img/20210118174100.png)
+
+[推荐阅读：Java引用与ThreadLocal](https://zhuanlan.zhihu.com/p/58931565?utm_source=wechat_session&utm_medium=social&utm_oi=1182794502313586688)
+
