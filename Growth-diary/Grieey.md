@@ -369,9 +369,25 @@ dp[i][k][1] = max(dp[i-1][k][1], dp[i-1][k-1][0] - prices[i]) // 第i天，最�
 
 ![build_tree_simply](https://cdn.jsdelivr.net/gh/Grieey/ImgHosting@main/img/build_tree_simply.png)
 
-### 反转链表
+对于二叉树构建的更难的版本是二叉树的序列化。
 
-### 合并有序数组
+#### [反转链表](https://leetcode-cn.com/problems/fan-zhuan-lian-biao-lcof/)
+
+这个题记录在这里是因为，之前自己写的时候，一直对链表处理的有问题，但是今天再写的时候就很顺畅。不知道当时写的时候哪个细节出错了，反正在这里记录下，题目本身很简单的。
+
+![reverse_list](https://cdn.jsdelivr.net/gh/Grieey/ImgHosting@main/img/reverse_list.png)
+
+#### [合并两个有序数组](https://leetcode-cn.com/problems/merge-sorted-array/)
+
+这个和下面的合并链表是同一类型的题目，合并数组因为知道大小，所以直接使用双指针就是比较快的做法。
+
+![merge_array](https://cdn.jsdelivr.net/gh/Grieey/ImgHosting@main/img/merge_array.png)
+
+### [合并两个排序的链表](https://leetcode-cn.com/problems/he-bing-liang-ge-pai-xu-de-lian-biao-lcof/)
+
+合并链表因为没法知道大小，不能像数组那样很快的倒序合并。这里仍然是`dummy`这种头指针的用法。最后返回`dummy.next`就可以了。
+
+![merge_link](https://cdn.jsdelivr.net/gh/Grieey/ImgHosting@main/img/merge_link.png)
 
 ### 实现二叉树的前序、后序、中序遍历
 
