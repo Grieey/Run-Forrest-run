@@ -318,3 +318,70 @@ dp[i][k][1] = max(dp[i-1][k][1], dp[i-1][k-1][0] - prices[i]) // 第i天，最�
 当**K**为任意数的时候，这里直接说解决方案：
 
 主要是处理**K**很大的时候的海量计算问题，当**K**大于了`prices.size / 2`，其效果和**K**正无穷一样，所以就是上面无限次交易那样省略**K**；当小于时，其实就是状态转移方程，进行穷举了。
+
+## 2021/01/17
+
+- 把Android多线程、线程间交互、多线程原理的视频看了一遍
+
+- 尝试写demo去验证多线程优化的逻辑，开始想的使用生产者和消费者来处理。后面编码发现不行，最后的思路就是在一个子线程中，提交任务去获取对应的消息列表，然后使用**CountDownLaunch**去控制这些子任务。伪代码如下：
+
+  ```kotlin
+  fun run () {
+    var startId = 0
+    cdl = CountDownLunch(coreNum)
+    while (startId == curId) {
+         for ( i in 1..coreNum) {
+    	  // getMessage是一个内部类，在完成任务后，调用cdl.countDown()
+    	  val run = GetMessage(startId)
+    	  startId += count
+    	  pool.submit(run)
+    	}
+    	cdl.await()
+    }
+  }
+  
+  class GetMessage() {
+    fun run() {
+      val list = getMessage()
+      res.add(list)
+      cdl.countDown()
+    }
+  }
+  ```
+
+## 2021/01/18
+
+- 完成两道算法题。之前练习过的剑指offer的题目很多又忘了，需要重新刷
+
+### 重建二叉树
+
+### 反转链表
+
+### 合并有序数组
+
+### 实现二叉树的前序、后序、中序遍历
+
+## 2021/01/19
+
+### [从上到下打印二叉树](https://leetcode-cn.com/problems/cong-shang-dao-xia-da-yin-er-cha-shu-lcof/)
+
+这个是一个系列的算法题，本质上属于对二叉树的遍历，思想上还是使用的**BFS**去进行的遍历。这一套流程的思路就是通过一个队里来不断的增加向下搜索的可选择的数据。在遍历到每一个节点时，根据我们的条件来看是否需要把他添加到队列中。
+
+比如说这个题，需要从上到下的打印整颗二叉树，对于队列来说，每一个节点的可选值就是她的左右孩子。条件也很简单，左右孩子不为空，就添加进入。由于是队列，会按照添加的顺序来打印，那么对于同一层的节点，在依次遍历队列时就是一个按着取的过程，可以想象为将二叉树拉平为一条直线。
+
+代码如下:
+
+![print_bst_1](https://cdn.jsdelivr.net/gh/Grieey/ImgHosting@main/img/print_bst_1.png)
+
+### [从上到下打印二叉树 II](https://leetcode-cn.com/problems/cong-shang-dao-xia-da-yin-er-cha-shu-ii-lcof/)
+
+第二个在打印上和第一个的区别就是增加了层数的限制，你需要明确的分出每一层来，其实可以结合之前计算二叉树的高度的思想，在每一层中再加一个for循环；这个for循环的意义就是，当一次循环遍历结束，就是处理完成了一层的节点。仔细想想，当`root`时，有两个节点，下一次循环就是2次，这两个节点处理完，下一次循环时，就应该是4次，因为每一次循环都会`poll()`所以处理完一层，剩下的size就是下一层的数目了。
+
+![print_bst_2_2](https://cdn.jsdelivr.net/gh/Grieey/ImgHosting@main/img/print_bst_2_2.png)
+
+### [从上到下打印二叉树 III](https://leetcode-cn.com/problems/cong-shang-dao-xia-da-yin-er-cha-shu-iii-lcof/)
+
+第三题比第二题难处理的点在于从右遍历这个怎么解决呢，其实换个角度，我可以不改变遍历的方式，改变结果的展示方式不就行了：对于从左到右的遍历，在添加结果到数组中时，就正常的添加在尾部，这样结果的顺序和遍历的顺序一致。当从右往左的遍历的时候，其实我们还是从左往右遍历，只是添加结果的时候是每次将结果添加到前面，来达到结果是从右往左的显示。
+
+![print_bst_3](https://cdn.jsdelivr.net/gh/Grieey/ImgHosting@main/img/print_bst_3.png)
+
