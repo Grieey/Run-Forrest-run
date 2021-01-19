@@ -353,7 +353,7 @@ dp[i][k][1] = max(dp[i-1][k][1], dp[i-1][k-1][0] - prices[i]) // 第i天，最�
 
 - 完成两道算法题。之前练习过的剑指offer的题目很多又忘了，需要重新刷
 
-#### [重建二叉树](https://leetcode-cn.com/problems/zhong-jian-er-cha-shu-lcof/)
+### [重建二叉树](https://leetcode-cn.com/problems/zhong-jian-er-cha-shu-lcof/)
 
 根据前序和中序遍历的结果来恢复二叉树，对于一个最简单的二叉树，前序就是**中左右**，中序就是**左中右**这样的顺序。根据这样的规律可以得出，在前序遍历的数组中，第一个位置的就是**root**节点，而在中序遍历的数组中，**root**节点的左边的数据，就是左子树的节点们，而右边的就是右子树的节点们。这样第一层的划分就完成了。接下来就是再将左右的区间下放到下一层再进行一次这样的操作就能完成整个二叉树的重建了。
 
@@ -371,13 +371,13 @@ dp[i][k][1] = max(dp[i-1][k][1], dp[i-1][k-1][0] - prices[i]) // 第i天，最�
 
 对于二叉树构建的更难的版本是二叉树的序列化。
 
-#### [反转链表](https://leetcode-cn.com/problems/fan-zhuan-lian-biao-lcof/)
+### [反转链表](https://leetcode-cn.com/problems/fan-zhuan-lian-biao-lcof/)
 
 这个题记录在这里是因为，之前自己写的时候，一直对链表处理的有问题，但是今天再写的时候就很顺畅。不知道当时写的时候哪个细节出错了，反正在这里记录下，题目本身很简单的。
 
 ![reverse_list](https://cdn.jsdelivr.net/gh/Grieey/ImgHosting@main/img/reverse_list.png)
 
-#### [合并两个有序数组](https://leetcode-cn.com/problems/merge-sorted-array/)
+### [合并两个有序数组](https://leetcode-cn.com/problems/merge-sorted-array/)
 
 这个和下面的合并链表是同一类型的题目，合并数组因为知道大小，所以直接使用双指针就是比较快的做法。
 
@@ -388,8 +388,6 @@ dp[i][k][1] = max(dp[i-1][k][1], dp[i-1][k-1][0] - prices[i]) // 第i天，最�
 合并链表因为没法知道大小，不能像数组那样很快的倒序合并。这里仍然是`dummy`这种头指针的用法。最后返回`dummy.next`就可以了。
 
 ![merge_link](https://cdn.jsdelivr.net/gh/Grieey/ImgHosting@main/img/merge_link.png)
-
-### 实现二叉树的前序、后序、中序遍历
 
 ## 2021/01/19
 
@@ -416,4 +414,10 @@ dp[i][k][1] = max(dp[i-1][k][1], dp[i-1][k-1][0] - prices[i]) // 第i天，最�
 第三题比第二题难处理的点在于从右遍历这个怎么解决呢，其实换个角度，我可以不改变遍历的方式，改变结果的展示方式不就行了：对于从左到右的遍历，在添加结果到数组中时，就正常的添加在尾部，这样结果的顺序和遍历的顺序一致。当从右往左的遍历的时候，其实我们还是从左往右遍历，只是添加结果的时候是每次将结果添加到前面，来达到结果是从右往左的显示。
 
 ![print_bst_3](https://cdn.jsdelivr.net/gh/Grieey/ImgHosting@main/img/print_bst_3.png)
+
+### [删除链表的倒数第 N 个结点](https://leetcode-cn.com/problems/remove-nth-node-from-end-of-list/)
+
+还是快慢指针，这是我第一时间能想到的，但是细节处理很不到位。想的是用删除第n个节点的方法来删除，发现始终都有问题。还是头结点的使用，建立dummy节点，这样slow指针指向的下一个节点才是需要删除的。
+
+![remove_n_from_end](https://cdn.jsdelivr.net/gh/Grieey/ImgHosting@main/img/remove_n_from_end.png)
 
