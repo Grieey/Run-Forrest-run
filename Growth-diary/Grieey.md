@@ -421,3 +421,7 @@ dp[i][k][1] = max(dp[i-1][k][1], dp[i-1][k-1][0] - prices[i]) // 第i天，最�
 
 ![remove_n_from_end](https://cdn.jsdelivr.net/gh/Grieey/ImgHosting@main/img/remove_n_from_end.png)
 
+## 2021/01/20
+
+- git修改默认分支名称的命令`git config --global init.defaultBranch main`，该命令需要在`git --version 2.28`以上才有用，如果使用`brew upgrdate git`之后，仍然提示git版本不对，`which -a git`来查看下有哪些版本，一般情况下有**MacOS**自带的和**HomeBrew**安装的两个版本，所以需要在**PATH**中配置；`vim ~/.bash_profile`中添加**brew**对应的路径，一般是`/usr/local/bin`这样的，将这个添加到**PATH**中去。`export PATH=$PATH:/usr/local/bin`这样的。
+
