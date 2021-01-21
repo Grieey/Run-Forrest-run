@@ -425,3 +425,18 @@ dp[i][k][1] = max(dp[i-1][k][1], dp[i-1][k-1][0] - prices[i]) // 第i天，最�
 
 - git修改默认分支名称的命令`git config --global init.defaultBranch main`，该命令需要在`git --version 2.28`以上才有用，如果使用`brew upgrdate git`之后，仍然提示git版本不对，`which -a git`来查看下有哪些版本，一般情况下有**MacOS**自带的和**HomeBrew**安装的两个版本，所以需要在**PATH**中配置；`vim ~/.bash_profile`中添加**brew**对应的路径，一般是`/usr/local/bin`这样的，将这个添加到**PATH**中去。`export PATH=$PATH:/usr/local/bin`这样的。
 
+## 2021/01/21
+
+### [ I. 二叉搜索树的最近公共祖先](https://leetcode-cn.com/problems/er-cha-sou-suo-shu-de-zui-jin-gong-gong-zu-xian-lcof/)
+
+这个题目和之前做的题目的唯一差别就是，这是一颗**BST**，所以可以利用**BST**的性质。如果求两个节点在一颗**BST**中的公共祖先，那它一定满足的条件就是，`p.val <= root.val && q.val >= root.val` ，其中`p、q`的位置可以互换。这个条件对应在**BST**就更明显了，因为对于**BST**来说，`left.val < root.val && right.val > root.val`，是不是一致了。
+
+![lowest_common_ancestor_bst](https://cdn.jsdelivr.net/gh/Grieey/ImgHosting@main/img/lowest_common_ancestor_bst.png)
+
+### [判定是否互为字符重排](https://leetcode-cn.com/problems/check-permutation-lcci/)
+
+这个题目比较简单，有多种做法可以解决，我这里用的滑动窗口的简版。滑动窗口的本质，是比较频数，即一个字符在字符串中出现的次数。对于本题而言，两个可以互相重排的字符串，本质上同频数的字符的随机组合而来。例如`abac`，这个字符串中，`a`出现2次，`b,c`各出现一次；而`bcaa`，这个字符也是一样，`a`2次，`b,c`各一次，他们的字符在频数上是一致的。这个题目中，时间复杂度至少都是$O(n)$，这个没的说，肯定得遍历一次。而空间复杂度，有些解法是用asc码来解决，那么需要的数组大小就是26个字符，而对于滑动窗口来说，最坏也就是26，最好可以达到1。
+
+代码如下：
+
+![check_permutation](https://cdn.jsdelivr.net/gh/Grieey/ImgHosting@main/img/check_permutation.png)
