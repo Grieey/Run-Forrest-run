@@ -424,8 +424,11 @@ dp[i][k][1] = max(dp[i-1][k][1], dp[i-1][k-1][0] - prices[i]) // 第i天，最�
 ## 2021/01/20
 
 - git修改默认分支名称的命令`git config --global init.defaultBranch main`，该命令需要在`git --version 2.28`以上才有用，如果使用`brew upgrdate git`之后，仍然提示git版本不对，`which -a git`来查看下有哪些版本，一般情况下有**MacOS**自带的和**HomeBrew**安装的两个版本，所以需要在**PATH**中配置；`vim ~/.bash_profile`中添加**brew**对应的路径，一般是`/usr/local/bin`这样的，将这个添加到**PATH**中去。`export PATH=$PATH:/usr/local/bin`这样的。
+- 看了[高爷的Systrace教程](https://www.androidperformance.com/2019/12/21/Android-Systrace-CPU/)的前半部分，醍醐灌顶。
 
 ## 2021/01/21
+
+- 阅读《Java并发编程实战》的第2章，想想对于**volatile**这个关键字的理解，正如它的定义一样，它是用来保证**写-读**这样一个操作的透明，即对其他线程可见。它无法保证的是**写-写**这样的操作，所以这样的操作肯定会带来脏数据。因此，才会有锁机制来保证**写-写**操作的安全性。
 
 ### [ I. 二叉搜索树的最近公共祖先](https://leetcode-cn.com/problems/er-cha-sou-suo-shu-de-zui-jin-gong-gong-zu-xian-lcof/)
 
@@ -440,3 +443,9 @@ dp[i][k][1] = max(dp[i-1][k][1], dp[i-1][k-1][0] - prices[i]) // 第i天，最�
 代码如下：
 
 ![check_permutation](https://cdn.jsdelivr.net/gh/Grieey/ImgHosting@main/img/check_permutation.png)
+
+### [URL化](https://leetcode-cn.com/problems/string-to-url-lcci/)
+
+这个题目做过一次了，之前是看的答案，这次是自己做出来的。再次贴出来是提醒下**String**的一个方法`String(array, 0, end)`
+
+![replace_spaces](https://cdn.jsdelivr.net/gh/Grieey/ImgHosting@main/img/replace_spaces.png)
