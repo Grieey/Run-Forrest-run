@@ -429,6 +429,8 @@ dp[i][k][1] = max(dp[i-1][k][1], dp[i-1][k-1][0] - prices[i]) // 第i天，最�
 ## 2021/01/21
 
 - 阅读《Java并发编程实战》的第2章，想想对于**volatile**这个关键字的理解，正如它的定义一样，它是用来保证**写-读**这样一个操作的透明，即对其他线程可见。它无法保证的是**写-写**这样的操作，所以这样的操作肯定会带来脏数据。因此，才会有锁机制来保证**写-写**操作的安全性。
+- 继续看**Systrace**的文章，从**Systrace**的角度去看系统的事件分发和绘制流程。
+- 对于弱引用的理解，这个东西是临时性使用的，当短时间内有大量的数据使用，可以用弱引用来创建临时的对象。还有一种是结合另一个引用来使用（关于这点还有疑惑）。
 
 ### [ I. 二叉搜索树的最近公共祖先](https://leetcode-cn.com/problems/er-cha-sou-suo-shu-de-zui-jin-gong-gong-zu-xian-lcof/)
 
@@ -449,3 +451,13 @@ dp[i][k][1] = max(dp[i-1][k][1], dp[i-1][k-1][0] - prices[i]) // 第i天，最�
 这个题目做过一次了，之前是看的答案，这次是自己做出来的。再次贴出来是提醒下**String**的一个方法`String(array, 0, end)`
 
 ![replace_spaces](https://cdn.jsdelivr.net/gh/Grieey/ImgHosting@main/img/replace_spaces.png)
+
+## 2021/01/22
+
+- 在gradle文件中无法读取都`local.propertires`中定义的变量，创建文件流去读取
+
+  ![gradle_get_properties](https://cdn.jsdelivr.net/gh/Grieey/ImgHosting@main/img/gradle_get_properties.png)
+
+  这个问题不常见，可能是不同版本的gradle插件导致的问题，因为其他的版本的我看直接使用`properties.get()`可以直接获取到的。
+
+- 使用`bintrayUpload`命令报错**HTTP:401**这种错误就是`bintray.user、bintray.apikey`没有设置好或者配置读取没有成功，参照上面的读取，配置就是在`local.properties`中设置就行了。格式是`bintray.user=xxxx`没有引号。
