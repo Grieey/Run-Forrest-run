@@ -478,6 +478,54 @@ dp[i][k][1] = max(dp[i-1][k][1], dp[i-1][k-1][0] - prices[i]) // 第i天，最�
 
 这道题第二次做的时候，虽然有思路了，但是细节零分。。。。仍然错了很多次，特别贴出来。
 
+## 2021/01/23
+
+- 四个线程，其中第四个线程需要等前三个线程完成计算后去统计他们的结果。除了使用**CountDownLatch**外，还可以使用**BlockingQueue**，其插入、删除和检查队列的方法有以下的这些：
+
+  |         | Throws Exception |  特殊值  |  阻塞  |            超时             |
+  | :-----: | :--------------: | :------: | :----: | :-------------------------: |
+  | Insert  |      add(o)      | offer(o) | put(o) | offer(o, timeout, timeunit) |
+  | Remove  |    remove(o)     |  poll()  | take() |   poll(timeout, timeunit)   |
+  | Examine |    element()     |  peek()  |        |                             |
+
+  其中，不同的方法带来的效果不一样：
+
+  - **Throws Exception：**调用方法后，该方法不能立刻发生，则抛出异常；
+  - **特殊值：**调用方法后，该方法不能立刻发生，则返回特殊值（`true和false`）；
+  - **阻塞：**调用方法后，该方法不能立刻发生，那么就阻塞；
+  - **超时：**调用方法后，该方法不能立刻发生，就阻塞，但是有超时的设定。
+
+  基于这个思路，将前三个线程看做生产者，最后一个线程看做消费者，那么也可以实现消费者等待前三个线程生产结束后再统计。伪码如下：
+
+  ```kotlin
+  val queue = BlockingQueue<Int>()
+  thread {
+    queue.put(1)
+  }
+  thread {
+    queue.put(2)
+  }
+  thread {
+    queue.put(3)
+  }
+  thread {
+    val a = queue.take() // 阻塞，等待计算
+    val b = queue.take()
+    val c = queue.take()
+    val res = a + b + c
+  }
+  ```
+
+  
+
+### [二叉树的右视图](https://leetcode-cn.com/problems/binary-tree-right-side-view/)
+
+这个题翻译一下就是找每一层的最右边的节点，一看到每一层这几个字就知道和一层层遍历的算法是同一类型的，前面是每一层遍历打印，这次是找最右边的值，所以相对还简单一些。一样使用队列去添加每一层的节点，每一次的循环就是每一层的遍历，然后依次的赋值左右节点进行覆盖，最后留下的就是最右边的节点值。
+
+需要提一下的是不要忘了`root`节点的值，因为是在循环外部添加的，所以容易忘。
+
+![right_side_view](https://cdn.jsdelivr.net/gh/Grieey/ImgHosting@main/img/right_side_view.png)
+
 
 
 ### 
