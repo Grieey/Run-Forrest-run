@@ -369,6 +369,8 @@ dp[i][k][1] = max(dp[i-1][k][1], dp[i-1][k-1][0] - prices[i]) // 第i天，最�
 
 ![build_tree_simply](https://cdn.jsdelivr.net/gh/Grieey/ImgHosting@main/img/build_tree_simply.png)
 
+重新来理解下`if (inorder[inStop] == stop)` 这句代码中的逻辑，同样是代码注释中的例子：对于`root = 4`来说，左子树的`stop`值是`4`，但是对于更下面的节点来说就不是了，比如以`root = 2`这颗子树来说，走到左子树`1`时，当`root = 1`这颗树遍历时，调用`buildTree`的方法去赋值它的左子树时，此时的`inStop = 0，inorder[inStop] = 1`，而`buildTree`的参数传入的`stop`就是`1`。所以这里的`inStop`的意义就是每当遇到最左边的一个子树的遍历到头（这个头就是它的`root`在中序的索引）时，就会前进一步。
+
 对于二叉树构建的更难的版本是二叉树的序列化。
 
 ### [反转链表](https://leetcode-cn.com/problems/fan-zhuan-lian-biao-lcof/)
@@ -461,3 +463,22 @@ dp[i][k][1] = max(dp[i-1][k][1], dp[i-1][k-1][0] - prices[i]) // 第i天，最�
   这个问题不常见，可能是不同版本的gradle插件导致的问题，因为其他的版本的我看直接使用`properties.get()`可以直接获取到的。
 
 - 使用`bintrayUpload`命令报错**HTTP:401**这种错误就是`bintray.user、bintray.apikey`没有设置好或者配置读取没有成功，参照上面的读取，配置就是在`local.properties`中设置就行了。格式是`bintray.user=xxxx`没有引号。
+
+- 想要不同的**task**按照一定顺序执行，可以使用`mustRunAfter`，代码如下：
+
+  ![order_running_task](https://cdn.jsdelivr.net/gh/Grieey/ImgHosting@main/img/order_running_task.png)
+
+### [用两个栈实现队列](https://leetcode-cn.com/problems/yong-liang-ge-zhan-shi-xian-dui-lie-lcof/)
+
+  这其实也是有一个系列的题型的，就是使用栈来实现队列的数据结构。这个题比较简单，贴出来做一个抛砖引玉的效果。双栈的思想就是，利用好入栈和出栈的顺序，我们首先想想队列，先进先出，然后栈是先进后出。那要是把两个栈的屁股连在一起，打通，这样压入栈A的元素出现在栈B的底部，想想这个场景，假设两个栈的底部是相通的，然后元素进入栈A时，也就是到了栈B的底部，然后第二个元素入栈，对栈A来说，从栈顶到栈底是`2,1`，对栈B来说就是`1,2`。所以基于此，针对这道题就是，当有元素入栈，就只入栈A，当出栈时，先看栈B是否有元素，有就出栈，没有就把栈A的元素依次放入栈B中，这样就到达了上面说的连通的效果。
+
+![two_stack_for_queue2](https://cdn.jsdelivr.net/gh/Grieey/ImgHosting@main/img/two_stack_for_queue2.png)
+
+### [旋转数组的最小数字](https://leetcode-cn.com/problems/xuan-zhuan-shu-zu-de-zui-xiao-shu-zi-lcof/)
+
+这道题第二次做的时候，虽然有思路了，但是细节零分。。。。仍然错了很多次，特别贴出来。
+
+
+
+### 
+
