@@ -526,7 +526,9 @@ dp[i][k][1] = max(dp[i-1][k][1], dp[i-1][k-1][0] - prices[i]) // 第i天，最�
 
 ![right_side_view](https://cdn.jsdelivr.net/gh/Grieey/ImgHosting@main/img/right_side_view.png)
 
+## 2021/01/24
 
+- 简单的复习了下剑指offer中的思路，很多题还是一脸懵逼。
 
 ### 
 
