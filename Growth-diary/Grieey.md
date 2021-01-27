@@ -532,6 +532,9 @@ dp[i][k][1] = max(dp[i-1][k][1], dp[i-1][k-1][0] - prices[i]) // 第i天，最�
 
 ## 2021/01/25
 
+- 配置好了core-ui的自动上传文件。
+- 完成了缓存的配图。
+
 ### [左旋转字符串](https://leetcode-cn.com/problems/zuo-xuan-zhuan-zi-fu-chuan-lcof/)
 
 简单的题，往往只需要简单的思路...这个题目思路就错了，用字符串拼接，一个遍历就出来了。
@@ -565,3 +568,11 @@ dp[i][k][1] = max(dp[i-1][k][1], dp[i-1][k-1][0] - prices[i]) // 第i天，最�
 动态规划的类型，一个连续子数组的和，对于某一个数来说，有两个状态可以选择，一个是本身，而是和前面的数相加。
 
 ![max_sum_of_subArray](https://cdn.jsdelivr.net/gh/Grieey/ImgHosting@main/img/max_sum_of_subArray.png)
+
+## 2021/01/26
+
+- 完善了handler的知识总结
+
+## 2021/01/27
+
+- 复习下剑指offer的简单题思路
