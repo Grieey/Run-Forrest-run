@@ -613,4 +613,6 @@ dp[i][k][1] = max(dp[i-1][k][1], dp[i-1][k-1][0] - prices[i]) // 第i天，最�
 
 有一个新思路就是将复制节点添加在源节点的`next`上。这样在处理`random`的节点时，只需要找到源节点的`random.next`的就行了。最后再把链表根据`next`一分为二就可以了。
 
+分开链表还是使用头指针的法，很方便，最后返回头指针的`next`就好了。
+
 ![copy_random_list](https://cdn.jsdelivr.net/gh/Grieey/ImgHosting@main/img/copy_random_list.png)
