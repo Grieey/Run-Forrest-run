@@ -616,3 +616,11 @@ dp[i][k][1] = max(dp[i-1][k][1], dp[i-1][k-1][0] - prices[i]) // 第i天，最�
 分开链表还是使用头指针的法，很方便，最后返回头指针的`next`就好了。
 
 ![copy_random_list](https://cdn.jsdelivr.net/gh/Grieey/ImgHosting@main/img/copy_random_list.png)
+
+## 2021/01/30
+
+### [礼物的最大价值](https://leetcode-cn.com/problems/li-wu-de-zui-da-jie-zhi-lcof/)
+
+典型的动态规划的问题，首先题目中明确了只能向右或者向下，那么某一点的礼物价值就只能是累加上一行或者左一列的值，可以设置`dp`数组的含义是：`dp[i][j]`为到第i行j列的礼物的最大值。起点就是0,0。这个位置是没有累加的，另外对于第一行和第一列来说也比较特殊，因为第一行只能是从左边来，没法从上面来，第一列也是如此，只能从上面遍历过来没法从左边。其他的位置就可能从上面的一行向下走到达或者左边一列向右走到达，取个最大值。
+
+![max_value_of_gif](https://cdn.jsdelivr.net/gh/Grieey/ImgHosting@main/img/max_value_of_gif.png)
