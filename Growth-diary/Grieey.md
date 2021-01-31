@@ -632,3 +632,15 @@ dp[i][k][1] = max(dp[i-1][k][1], dp[i-1][k-1][0] - prices[i]) // 第i天，最�
 所以根据框架，在中间进行操作，也就是将双指针指向树，使用`pre`指针游走。
 
 ![tree_to_doubly_list](https://cdn.jsdelivr.net/gh/Grieey/ImgHosting@main/img/tree_to_doubly_list.png)
+
+### [丑数](https://leetcode-cn.com/problems/chou-shu-lcof/)
+
+说实话，这个题的思路不怎么明白。因为丑数的定义是质数只包含`2,3,5`的倍数，所以
+
+![nth_ugly_number](https://cdn.jsdelivr.net/gh/Grieey/ImgHosting@main/img/nth_ugly_number.png)
+
+### [栈的压入、弹出序列](https://leetcode-cn.com/problems/zhan-de-ya-ru-dan-chu-xu-lie-lcof/)
+
+我的思路是根据出栈序列来模拟出栈。从入栈序列中一直添加数据，直到添加到出栈的那个值，代表此时那个值进行了一次出栈操作，则我们也在下面出栈。再继续根据入栈序列添加数据，去找下一个出栈的值。最后根据stack里的值是不是完全出栈来判断。因为不是正确的出栈序列，这个模拟的过程肯定无法成立，就导致stack数据无法出栈完。
+
+![validate_stack_sequences](https://cdn.jsdelivr.net/gh/Grieey/ImgHosting@main/img/validate_stack_sequences.png)
