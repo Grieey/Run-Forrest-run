@@ -624,3 +624,11 @@ dp[i][k][1] = max(dp[i-1][k][1], dp[i-1][k-1][0] - prices[i]) // 第i天，最�
 典型的动态规划的问题，首先题目中明确了只能向右或者向下，那么某一点的礼物价值就只能是累加上一行或者左一列的值，可以设置`dp`数组的含义是：`dp[i][j]`为到第i行j列的礼物的最大值。起点就是0,0。这个位置是没有累加的，另外对于第一行和第一列来说也比较特殊，因为第一行只能是从左边来，没法从上面来，第一列也是如此，只能从上面遍历过来没法从左边。其他的位置就可能从上面的一行向下走到达或者左边一列向右走到达，取个最大值。
 
 ![max_value_of_gif](https://cdn.jsdelivr.net/gh/Grieey/ImgHosting@main/img/max_value_of_gif.png)
+
+### [二叉搜索树与双向链表](https://leetcode-cn.com/problems/er-cha-sou-suo-shu-yu-shuang-xiang-lian-biao-lcof/)
+
+将二叉搜索树转化为双向链表，使用双指针，对树的遍历使用中序遍历，这样能保证头节点是最左边的节点，尾节点是最右边的节点。
+
+所以根据框架，在中间进行操作，也就是将双指针指向树，使用`pre`指针游走。
+
+![tree_to_doubly_list](https://cdn.jsdelivr.net/gh/Grieey/ImgHosting@main/img/tree_to_doubly_list.png)
