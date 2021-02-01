@@ -667,3 +667,11 @@ dp[i][k][1] = max(dp[i-1][k][1], dp[i-1][k-1][0] - prices[i]) // 第i天，最�
 将上面的规律翻译为代码如下，两次遍历，一次求左边的乘积，一次求右边的乘积和总的乘积。
 
 ![construct_arr](https://cdn.jsdelivr.net/gh/Grieey/ImgHosting@main/img/construct_arr.png)
+
+### [二叉树中和为某一值的路径](https://leetcode-cn.com/problems/er-cha-shu-zhong-he-wei-mou-yi-zhi-de-lu-jing-lcof/)
+
+这道题看题目还以为和上面的路径之和的题目一样，想用前缀和，结果不是，还是使用全排列来做。注意题目条件是从根节点出发，到达叶子节点的路径，所以还相对简单一些。结束条件肯定就是`root == null`，添加的条件就是`track`中的和满足等于`target`。这里有一个小技巧，就是每一层都传入剩下需要的和，这样就不用重复计算`track.sum()`了。
+
+总体思路还是，记住每一层需要做的事，做完了就移除进行回溯。
+
+![path_sum_of_bst](https://cdn.jsdelivr.net/gh/Grieey/ImgHosting@main/img/path_sum_of_bst.png)
