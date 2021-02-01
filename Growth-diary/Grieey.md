@@ -625,6 +625,10 @@ dp[i][k][1] = max(dp[i-1][k][1], dp[i-1][k-1][0] - prices[i]) // 第i天，最�
 
 ![max_value_of_gif](https://cdn.jsdelivr.net/gh/Grieey/ImgHosting@main/img/max_value_of_gif.png)
 
+## 2021/01/31
+
+- 看协程相关的内容
+
 ### [二叉搜索树与双向链表](https://leetcode-cn.com/problems/er-cha-sou-suo-shu-yu-shuang-xiang-lian-biao-lcof/)
 
 将二叉搜索树转化为双向链表，使用双指针，对树的遍历使用中序遍历，这样能保证头节点是最左边的节点，尾节点是最右边的节点。
@@ -644,3 +648,22 @@ dp[i][k][1] = max(dp[i-1][k][1], dp[i-1][k-1][0] - prices[i]) // 第i天，最�
 我的思路是根据出栈序列来模拟出栈。从入栈序列中一直添加数据，直到添加到出栈的那个值，代表此时那个值进行了一次出栈操作，则我们也在下面出栈。再继续根据入栈序列添加数据，去找下一个出栈的值。最后根据stack里的值是不是完全出栈来判断。因为不是正确的出栈序列，这个模拟的过程肯定无法成立，就导致stack数据无法出栈完。
 
 ![validate_stack_sequences](https://cdn.jsdelivr.net/gh/Grieey/ImgHosting@main/img/validate_stack_sequences.png)
+
+## 2021/02/01
+
+- 数值类型的操作都需要考虑溢出的问题。
+
+### [构建乘积数组](https://leetcode-cn.com/problems/gou-jian-cheng-ji-shu-zu-lcof/)
+
+废话不多说，上题解图
+
+![](https://pic.leetcode-cn.com/6056c7a5009cb7a4674aab28505e598c502a7f7c60c45b9f19a8a64f31304745-Picture1.png)
+
+不使用除法，就是分别求当前值的左右乘积，则可以列出上列的表格来，所以每一行的左右乘积就是对角线的左右乘积。分别来计算左右，再相乘即可：
+
+- 对于左边，即$A(0)*A(1)...A(i - 2)*A(i - 1)$，而$A(i - 1)$前面的乘积正好是$B(i - 1)$的左边部分的乘积值，所以$B(i) = B(i - 1) * A(i - 1)$构成了左边部分的乘积；
+- 对于右边，即$A(i + 1) * A(i + 2)...A(N - 1) * A(N)$，可以从`N - 1`开始求，$B(N - 1) = A(N) * 1$，$B(N - 2) = B(N - 1) * A(N - 1)$。
+
+将上面的规律翻译为代码如下，两次遍历，一次求左边的乘积，一次求右边的乘积和总的乘积。
+
+![construct_arr](https://cdn.jsdelivr.net/gh/Grieey/ImgHosting@main/img/construct_arr.png)
