@@ -652,6 +652,7 @@ dp[i][k][1] = max(dp[i-1][k][1], dp[i-1][k-1][0] - prices[i]) // 第i天，最�
 ## 2021/02/01
 
 - 数值类型的操作都需要考虑溢出的问题。
+- **LeakCanary**的实现原理：首先是注册，通过注册**ApplicationLifeCycleCallback**来获取**ActivityOnDestory**的回调，然后在子线程进行观察**Activity**对象，将**Activity**包装到弱引用中，在子线程中不断轮询弱引用队列，查看对应的弱引用是否存在，如果存在，证明被回收了，没有则继续尝试，尝试一定次数后，仍然存在，说明发生了泄漏。
 
 ### [构建乘积数组](https://leetcode-cn.com/problems/gou-jian-cheng-ji-shu-zu-lcof/)
 
