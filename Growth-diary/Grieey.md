@@ -695,10 +695,16 @@ dp[i][k][1] = max(dp[i-1][k][1], dp[i-1][k-1][0] - prices[i]) // 第i天，最�
 
 ![missing_number](https://cdn.jsdelivr.net/gh/Grieey/ImgHosting@main/img/missing_number.png)
 
+### [找到所有数组中消失的数字](https://leetcode-cn.com/problems/find-all-numbers-disappeared-in-an-array/)
+
+这个题是上面的题的进阶版，消失的数目是不定的，但是题目最关键的条件还是所有数的范围是`1-n`，假设我们将数据排好序，且不重复，那么`index + 1 = num`，`num`是下标对应的值。这里可以使用负数来标记存在值的索引，例如，某个下标中有值`1`，那我们将下标`1`对应的值修改为负数，这样当遍历到下标`1`时，只要它的值为负数，就代表数组中某个下标的值为`1`。最后只需要遍历出哪些值不为负数就知道哪些下标不存在了。
+
+![find_disappeared_numbers](https://cdn.jsdelivr.net/gh/Grieey/ImgHosting@main/img/find_disappeared_numbers.png)
+
 ### [主要元素](https://leetcode-cn.com/problems/find-majority-element-lcci/)
 
 这个题目，在$O(n)$的空间复杂度下比较好做，使用一个map来进行频数统计，最后遍历，找到频数最大的那个值就可以了。
 
-如果要实现$O(1)$的空间复杂度，可以使用`times`来遍历统计，之前有个题目和这个类似，但是区别是那个题目是肯定存在主要数的，这个题目说了不一定，不存在时需要返回`-1`，所以采用左右遍历，如果存在，则两次遍历找到的应该是同一个主要数，如果不存在，则左右遍历的结果会不一致的。
+如果要实现$O(1)$的空间复杂度，可以使用`times`来遍历统计(**摩尔投票**)，之前有个题目和这个类似，但是区别是那个题目是肯定存在主要数的，这个题目说了不一定，不存在时需要返回`-1`，所以采用左右遍历，如果存在，则两次遍历找到的应该是同一个主要数，如果不存在，则左右遍历的结果会不一致的。
 
 ![majority_element](https://cdn.jsdelivr.net/gh/Grieey/ImgHosting@main/img/majority_element.png)
