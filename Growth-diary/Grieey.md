@@ -676,3 +676,29 @@ dp[i][k][1] = max(dp[i-1][k][1], dp[i-1][k-1][0] - prices[i]) // 第i天，最�
 总体思路还是，记住每一层需要做的事，做完了就移除进行回溯。
 
 ![path_sum_of_bst](https://cdn.jsdelivr.net/gh/Grieey/ImgHosting@main/img/path_sum_of_bst.png)
+
+## 2021/02/05
+
+### [好数对的数目](https://leetcode-cn.com/problems/number-of-good-pairs/)
+
+使用数学上的方法来做这道题，需要额外的空间辅助，分析题目中的例子，一个相同的数的数对个数计算公式为$s = (v * (v - 1)) / 2$。所以首先通过`HashMap`来计算每个重复的数组的频数，再计算每组数对的个数和就可以了。
+
+时间复杂度和空间复杂度都是$O(n)$。
+
+![num_identical_pairs](https://cdn.jsdelivr.net/gh/Grieey/ImgHosting@main/img/num_identical_pairs.png)
+
+### [消失的数字](https://leetcode-cn.com/problems/missing-number-lcci/)
+
+这个题有两个思路，一个是数学上的，包含从0-n一共n个数，正常情况下这些数的总和为$sum = n * (n + 1) / 2$，现在用这个总和去依次减掉数组中的值，剩下那个就是缺少的。
+
+第二种是采用异或运算，因为0和其他数的异或等于本身，而相同的数异或等于0，同样的，上面的数据如果正常不缺少，依次和下标和0异或后应该为0，例如：下标为1，值为1，那么`1 ^ 1 ^ 0 = 0`，第一个1是下标，第二个1是某个下中的值为1。
+
+![missing_number](https://cdn.jsdelivr.net/gh/Grieey/ImgHosting@main/img/missing_number.png)
+
+### [主要元素](https://leetcode-cn.com/problems/find-majority-element-lcci/)
+
+这个题目，在$O(n)$的空间复杂度下比较好做，使用一个map来进行频数统计，最后遍历，找到频数最大的那个值就可以了。
+
+如果要实现$O(1)$的空间复杂度，可以使用`times`来遍历统计，之前有个题目和这个类似，但是区别是那个题目是肯定存在主要数的，这个题目说了不一定，不存在时需要返回`-1`，所以采用左右遍历，如果存在，则两次遍历找到的应该是同一个主要数，如果不存在，则左右遍历的结果会不一致的。
+
+![majority_element](https://cdn.jsdelivr.net/gh/Grieey/ImgHosting@main/img/majority_element.png)
