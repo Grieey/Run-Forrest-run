@@ -711,3 +711,10 @@ dp[i][k][1] = max(dp[i-1][k][1], dp[i-1][k-1][0] - prices[i]) // 第i天，最�
 
 ## 2021/02/06
 
+### [快乐数](https://leetcode-cn.com/problems/happy-number/)
+
+这个题目读完我一直在想，这个无限循环如何结束的问题。确实没有想到这最后会是一个圈，其实道理也很简单。如果一个数的数位平方和一直加下去，是不可能无限的增长的。既然会是个死循环，那么说明肯定是一个圈的。
+
+一个圈就可以用快慢指针来找出相交点，要是这个点存在，说明是个圈，不存在，则最后的尽头就是1了。
+
+![is_happy](https://cdn.jsdelivr.net/gh/Grieey/ImgHosting@main/img/is_happy.png)
