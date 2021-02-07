@@ -718,3 +718,7 @@ dp[i][k][1] = max(dp[i-1][k][1], dp[i-1][k-1][0] - prices[i]) // 第i天，最�
 一个圈就可以用快慢指针来找出相交点，要是这个点存在，说明是个圈，不存在，则最后的尽头就是1了。
 
 ![is_happy](https://cdn.jsdelivr.net/gh/Grieey/ImgHosting@main/img/is_happy.png)
+
+## 2021/02/07
+
+- Android中的`flag_clear_top`标志的使用，如果需要启动的目标Activity在任务栈中，则需要先看该Activity的启动模式，要是标准模式，就会将目标Activity本身及其上的所有Activity都移出栈，再生成一个新的目标实例。如果不想这样可以再添加`flag_single_top`的标志，或者将目标Activity的启动模式修改了，这样就不会移除目标Activity，而是会回调`onNewIntent()`方法。
