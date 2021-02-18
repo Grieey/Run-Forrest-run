@@ -722,3 +722,13 @@ dp[i][k][1] = max(dp[i-1][k][1], dp[i-1][k-1][0] - prices[i]) // 第i天，最�
 ## 2021/02/07
 
 - Android中的`flag_clear_top`标志的使用，如果需要启动的目标Activity在任务栈中，则需要先看该Activity的启动模式，要是标准模式，就会将目标Activity本身及其上的所有Activity都移出栈，再生成一个新的目标实例。如果不想这样可以再添加`flag_single_top`的标志，或者将目标Activity的启动模式修改了，这样就不会移除目标Activity，而是会回调`onNewIntent()`方法。
+
+## 2021/02/18
+
+### [宝石与石头](https://leetcode-cn.com/problems/jewels-and-stones/)
+
+这是一道简单的题目，本身确实没有啥难度，利用哈希表集合就可以解决这个题目，常规的思路就是，将宝石的类型一一添加到`set`集合中，再去遍历所有的石头就可以计算出你拥有的宝石个数了。时间复杂度为$O(m+n)$，空间复杂度为$O(m)$。
+
+评论区给出了另一种思路，不需要判断，也不错，将空间复杂度降为了$O(1)$。利用ASC码的特性作为索引，每一个字母对应的ASC码值就是数组的下标，然后遍历宝石将对于的字母下标设置为1，再遍历石头时，依次相加就可以得出了。
+
+![num_jewels_in_stones](https://cdn.jsdelivr.net/gh/Grieey/ImgHosting@main/img/num_jewels_in_stones.png)
