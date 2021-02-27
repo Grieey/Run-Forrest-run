@@ -738,3 +738,23 @@ dp[i][k][1] = max(dp[i-1][k][1], dp[i-1][k-1][0] - prices[i]) // 第i天，最�
 评论区给出了另一种思路，不需要判断，也不错，将空间复杂度降为了$O(1)$。利用ASC码的特性作为索引，每一个字母对应的ASC码值就是数组的下标，然后遍历宝石将对于的字母下标设置为1，再遍历石头时，依次相加就可以得出了。
 
 ![num_jewels_in_stones](https://cdn.jsdelivr.net/gh/Grieey/ImgHosting@main/img/num_jewels_in_stones.png)
+
+## 2021/02/24
+
+- App 安装失败并出现以下日志时：
+
+  ```bash
+  Installation did not succeed.
+  The application could not be installed: INSTALL_FAILED_TEST_ONLY
+  ```
+
+  在`gradle.properties`中添加`android.injected.testOnly=false`
+
+## 2021/02/27
+
+### Kotlin中，反射获取指定参数类型的constructor
+
+```kotlin
+val instance = XXXClass.java.getConstructor(Context::class.java)
+```
+
