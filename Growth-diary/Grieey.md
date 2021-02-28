@@ -761,3 +761,4 @@ val instance = XXXClass.java.getConstructor(Context::class.java)
 ## 2021/02/28
 
 - layoutManager的onLayoutChildren方法会回调多次，第一次在布局子view的时候。而滑动时，通过的是scrollVerticallyBy方法的回调，然后调用布局的方法一步步布局childView来实现的滑动。
+- 更新layoutParams时，需要赋值才会生效。
